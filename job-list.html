@@ -1,0 +1,156 @@
+<body>
+  <!-- Keep your navbar (copy from index.html) -->
+  <div class="main">
+    <nav class="navbar fixed-top">
+      <!-- Just copy from <nav> to </nav> -->
+    </nav>
+
+    <!-- JOB LIST PAGE CONTENT -->
+    <section class="py-5" style="margin-top: 120px">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Available Jobs</h2>
+
+        <div class="row g-4">
+          <!-- JOB 1: Frontend -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <h5 class="card-title">Frontend Development</h5>
+                <p class="text-muted">Remote • Full-time • $1k - $5k</p>
+                <p>
+                  Build responsive UIs with React, HTML, CSS, and JavaScript.
+                </p>
+                <a
+                  href="#apply"
+                  class="btn btn-orange btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#applyModal"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- JOB 2: Backend -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <h5 class="card-title">Backend Development</h5>
+                <p class="text-muted">On-site • Full-time • $4k - $7K</p>
+                <p>
+                  Develop APIs with Node.js, Python, or Java. Manage databases.
+                </p>
+                <a
+                  href="#apply"
+                  class="btn btn-orange btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#applyModal"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- JOB 3: Graphics Design -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <h5 class="card-title">Graphics Design</h5>
+                <p class="text-muted">Remote • Part-time • $0.5k - $1k</p>
+                <p>Create branding, UI mockups, and marketing materials.</p>
+                <a
+                  href="#apply"
+                  class="btn btn-orange btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#applyModal"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="text-center mt-5">
+          <button class="btn btn-outline-orange px-5">Load More Jobs</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- APPLY MODAL (Popup Form) -->
+  <div class="modal fade" id="applyModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apply for Job</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Resume (PDF)</label>
+              <input type="file" class="form-control" accept=".pdf" />
+            </div>
+            <button type="submit" class="btn btn-orange w-100">
+              Submit Application
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keep Bootstrap JS & your script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="exercise.css" />
+  <script>
+    // Success message when form is submitted
+    const applyModal = document.getElementById("applyModal");
+    applyModal.addEventListener("shown.bs.modal", function () {
+      const submitBtn = applyModal.querySelector('button[type="submit"]');
+      const form = applyModal.querySelector("form");
+
+      // Reset previous success message
+      form.innerHTML = `
+    <div class="mb-3"><label class="form-label">Full Name</label><input type="text" class="form-control" required></div>
+    <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" required></div>
+    <div class="mb-3"><label class="form-label">Resume (PDF)</label><input type="file" class="form-control" accept=".pdf"></div>
+    <button type="submit" class="btn btn-orange w-100">Submit Application</button>
+  `;
+
+      // When user clicks Submit
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Stop real form submit
+
+        // Show success animation
+        form.innerHTML = `
+      <div class="text-center py-5">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+        <h4 class="text-orange mt-4">Application Submitted Successfully!</h4>
+        <p class="text-muted">We will contact you soon via email.</p>
+        <button class="btn btn-orange mt-3" data-bs-dismiss="modal">Close</button>
+      </div>
+    `;
+      });
+    });
+  </script>
+</body>
